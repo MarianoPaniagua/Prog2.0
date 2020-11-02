@@ -1,24 +1,24 @@
 package pocion;
 
-import juego.Card;
+import juego.Carta;
 
 public abstract class Pocion {
 
     String nombre;
 
-    boolean aplica;
+    boolean aplicada;
 
-    public Pocion(String nombre, boolean aplica) {
-        this.nombre = nombre; this.aplica = aplica;
+    public Pocion(String nombre, boolean aplicada) {
+        this.nombre = nombre; this.aplicada = aplicada;
     }
 
-    public abstract Card aplicarPocion(Card cartaAModificar, String Atributo);
+    public abstract Carta aplicarPocion(Carta cartaAModificar, String Atributo);
 
     public String getnombre() {
         return this.nombre;
     }
 
-    public boolean getAplica() {
-        return this.aplica;
+    public boolean aplicada() {
+        return this.aplicada;
     }
 }

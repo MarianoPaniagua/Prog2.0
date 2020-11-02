@@ -1,6 +1,6 @@
 package criterio;
 
-import juego.Card;
+import juego.Carta;
 
 import java.util.ArrayList;
 
@@ -12,7 +12,7 @@ public class CriterioNombreAtributos extends Criterio {
         atributosPosibles = listaAtributos;
     }
     @Override
-    public boolean cumpleCriterio(Card carta) {
+    public boolean cumpleCriterio(Carta carta) {
         ArrayList<String> atributos =new ArrayList<>();
         atributos = carta.getAtributosNames(carta.getAtributos());
         return atributos.containsAll(atributosPosibles);

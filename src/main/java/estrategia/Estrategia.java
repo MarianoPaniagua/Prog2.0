@@ -1,7 +1,7 @@
-package Estrategias;
+package estrategia;
 
 import juego.Atributo;
-import juego.Card;
+import juego.Carta;
 
 public  abstract class Estrategia {
 
@@ -11,5 +11,5 @@ public  abstract class Estrategia {
         this.nombre = nombre;
     }
 
-    public abstract Atributo playUsingStrategy(Card card);
+    public abstract Atributo jugarEstrategia(Carta carta);
 }

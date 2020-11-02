@@ -1,6 +1,6 @@
 package criterio;
 
-import juego.Card;
+import juego.Carta;
 
 public class CriterioCantAtributos extends Criterio {
     private int cantidadAtributos;
@@ -10,7 +10,7 @@ public class CriterioCantAtributos extends Criterio {
     }
 
     @Override
-    public boolean cumpleCriterio(Card carta) {
+    public boolean cumpleCriterio(Carta carta) {
         return carta.getAtributos().size() == cantidadAtributos;
     }
 }

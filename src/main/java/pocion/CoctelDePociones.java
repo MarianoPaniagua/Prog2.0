@@ -1,6 +1,6 @@
 package pocion;
 
-import juego.Card;
+import juego.Carta;
 
 import java.util.ArrayList;
 
@@ -19,10 +19,13 @@ public class CoctelDePociones extends Pocion{
     }
 
     @Override
-    public Card aplicarPocion(Card carta, String atributo) {
-        for(Pocion pocion : pociones){
-            carta = pocion.aplicarPocion(carta, atributo);
+    public Carta aplicarPocion(Carta carta, String atributo) {
+        if(!this.aplicada) {
+            for (Pocion pocion : pociones) {
+                carta = pocion.aplicarPocion(carta, atributo);
+            }
         }
+        this.aplicada = true;
         return carta;
     }
 }

@@ -1,7 +1,7 @@
 package criterio;
 
-import juego.Card;
+import juego.Carta;
 
 public abstract class Criterio {
-    public abstract boolean cumpleCriterio(Card carta);
+    public abstract boolean cumpleCriterio(Carta carta);
 }

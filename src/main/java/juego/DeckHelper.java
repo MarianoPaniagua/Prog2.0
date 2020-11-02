@@ -14,8 +14,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class DeckHelper {
 
-    public Deck generateDeckAllCards(String path) {
-        Deck mazo = new Deck();
+    public Mazo generateDeckAllCards(String path) {
+        Mazo mazo = new Mazo();
         File jsonInputFile = new File(path);
         InputStream is;
         try {
@@ -27,7 +27,7 @@ public class DeckHelper {
             for (JsonObject carta : cartas.getValuesAs(JsonObject.class)) {
                 String nombreCarta = carta.getString("nombre");
                 JsonObject atributos = (JsonObject) carta.getJsonObject("atributos");
-                Card cartita = new Card();
+                Carta cartita = new Carta();
                 cartita.setNombre(nombreCarta);
 
                 String atributosStr = "";
@@ -47,45 +47,45 @@ public class DeckHelper {
         return mazo;
     }
 
-    public Deck filtrarMazoPorCriterio(Deck deckToFilter, List<Criterio> criterios) {
-        Deck filteredDeck = new Deck();
+    public Mazo filtrarMazoPorCriterio(Mazo mazoToFilter, List<Criterio> criterios) {
+        Mazo filteredMazo = new Mazo();
         boolean cumple = true;
-        for (int i = 0; i < deckToFilter.size(); i++) {
+        for (int i = 0; i < mazoToFilter.size(); i++) {
             for (int j = 0; j < criterios.size(); j++) {
-                if (!criterios.get(j).cumpleCriterio(deckToFilter.getCard(i))) {
+                if (!criterios.get(j).cumpleCriterio(mazoToFilter.getCard(i))) {
                     cumple = false;
                 }
             }
             if (cumple) {
-                filteredDeck.addCard(deckToFilter.getCard(i));
+                filteredMazo.addCard(mazoToFilter.getCard(i));
             }
             cumple = true;
         }
-        return filteredDeck;
+        return filteredMazo;
     }
 
-    private Deck repartirDeck(Deck allCards, int extraCard) {
+    private Mazo repartirDeck(Mazo allCards, int extraCard) {
         int i;
-        ArrayList<Card> cartaselegidas = new ArrayList<>();
+        ArrayList<Carta> cartaselegidas = new ArrayList<>();
         for (i = 0; i < (allCards.size() / 2) + extraCard; i++) {
             int randomNum = ThreadLocalRandom.current().nextInt(0, allCards.size());
             cartaselegidas.add(allCards.getMazo().get(randomNum));
         }
-        Deck mazoRepartido = new Deck();
+        Mazo mazoRepartido = new Mazo();
         mazoRepartido.setMazo(cartaselegidas);
         return mazoRepartido;
     }
 
-    public Deck generateDeck(Deck allCards, boolean isPlayer1, List<Criterio> criterios) {
+    public Mazo generateDeck(Mazo allCards, boolean isPlayer1, List<Criterio> criterios) {
         int extraCard = 0;
         if (isPlayer1 && allCards.size() % 2 > 0) {
             extraCard = 1;
         }
-        Deck mazoRepartido = repartirDeck(filtrarMazoPorCriterio(allCards, criterios), extraCard);
+        Mazo mazoRepartido = repartirDeck(filtrarMazoPorCriterio(allCards, criterios), extraCard);
         return mazoRepartido;
     }
 
-    public Deck intercalarPociones(Deck mazoGeneral, List<Pocion> pociones) {
+    public Mazo intercalarPociones(Mazo mazoGeneral, List<Pocion> pociones) {
         int i;
         for(i = 0; i < pociones.size(); i++){
             int randomNumCard = ThreadLocalRandom.current().nextInt(0, mazoGeneral.size());
