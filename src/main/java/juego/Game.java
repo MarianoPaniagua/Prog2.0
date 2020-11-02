@@ -2,7 +2,7 @@ package juego;
 
 public class Game {
 
-    public final int MAX_ROUNDS = 1000;
+    public final int MAX_ROUNDS = 10;
 
     private int counter = 1;
 
@@ -30,7 +30,7 @@ public class Game {
             Card cardOne = playerOne.getMyDeck().getCard(0);
             Card cardTwo = playerTwo.getMyDeck().getCard(0);
             //El jugador uno elije un atributo
-            String atributoRandom = cardOne.getARandomAtributeName(cardOne);
+            String atributoRandom = playerOne.getEstrategia().playUsingStrategy(cardOne).getNombreAtributo();
             System.out.println("El jugador " + playerOne.getName() + " selecciona competir con el atributo "
                     + atributoRandom);
             System.out.println("La carta de " + playerOne.getName() + " es " +

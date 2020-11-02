@@ -1,5 +1,8 @@
 package juego;
 
+import Estrategias.Ambicioso;
+import Estrategias.Estrategia;
+import Estrategias.Obstinado;
 import criterio.CriterioCantAtributos;
 import criterio.Criterio;
 import criterio.CriterioNombreAtributos;
@@ -12,7 +15,7 @@ import java.util.ArrayList;
 
 public class MainClass {
     public static void main(String[] args) {
-        String path = "C:\\Users\\mariano.paniagua\\IdeaProjects\\prog2\\src\\main\\java\\juego\\superheroes.json";
+        String path = "C:\\Users\\Francisco\\Desktop\\Prog 2.0\\Prog2.0\\src\\main\\java\\juego\\superheroes.json";
 
         //Creamos pociones
         Pocion pocionIncrementaFuerza = new PocionIncrementa("PocionIncrementadoraDeFuerza", new Atributo("fuerza", 20));
@@ -54,6 +57,10 @@ public class MainClass {
         Player playerOne = new Player("Mariano");
         Player playerTwo = new Player("Fran");
         System.out.println("Jugadores creados");
+        //Se setean estrategias para cada jugador.
+        Estrategia elegirMayor = new Obstinado("ambicioso", "fuerza");
+        playerOne.setEstrategia(elegirMayor);
+        playerTwo.setEstrategia(elegirMayor);
 
         //Se crea el mazo general
         DeckHelper deckHelper = new DeckHelper();

@@ -75,8 +75,8 @@ public class Card {
     }
 
 
-    public String getARandomAtributeName(Card card) {
-        int randomIndex = new Random().nextInt(card.getCantidadAtributos() - 1) + 1;
+    public String getARandomAtributeName() {
+        int randomIndex = new Random().nextInt(this.getCantidadAtributos() - 1) + 1;
         String atributoRandom = atributos.get(randomIndex).getNombreAtributo();
         return atributoRandom;
     }

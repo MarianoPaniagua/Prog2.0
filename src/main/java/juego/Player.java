@@ -1,9 +1,12 @@
 package juego;
 
+import Estrategias.Estrategia;
+
 public class Player {
 
     private String name;
     private Deck myDeck;
+    private Estrategia estrategia;
 
     public Player(){}
 
@@ -25,5 +28,12 @@ public class Player {
 
     public void setMyDeck(Deck myDeck) {
         this.myDeck = myDeck;
+    }
+
+    public Estrategia getEstrategia() {
+        return estrategia;
+    }
+    public void setEstrategia(Estrategia estrategia) {
+        this.estrategia = estrategia;
     }
 }
