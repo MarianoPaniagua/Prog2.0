@@ -18,11 +18,13 @@ public class PocionModifica extends Pocion {
             for (Atributo atributo : carta.getAtributos()) {
                 carta.reemplazarAtributo(atributo.getNombreAtributo(), atributoDeLaPocion.getValor());
             }
-            this.aplica = true;
+            System.out.println("Se aplicó la pocima " + this.nombre +
+                    " , el valor resultante es " + carta.getAtributo(atributoCarta).getValor());
             return carta;
         } else if (atributoCarta.equals(this.atributoDeLaPocion.getNombreAtributo())) {
             carta.reemplazarAtributo(atributoDeLaPocion.getNombreAtributo(), atributoDeLaPocion.getValor());
-            this.aplica = true;
+            System.out.println("Se aplicó la pocima " + this.nombre +
+                    " , el valor resultante es " + carta.getAtributo(atributoCarta).getValor());
         }
         return carta;
 

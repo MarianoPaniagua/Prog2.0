@@ -3,7 +3,9 @@ package juego;
 import criterio.CriterioCantAtributos;
 import criterio.Criterio;
 import criterio.CriterioNombreAtributos;
+import pocion.CoctelDePociones;
 import pocion.Pocion;
+import pocion.PocionDecrementa;
 import pocion.PocionIncrementa;
 
 import java.util.ArrayList;
@@ -16,9 +18,19 @@ public class MainClass {
         Pocion pocionIncrementaFuerza = new PocionIncrementa("PocionIncrementadoraDeFuerza", new Atributo("fuerza", 20));
         Pocion pocionIncrementaVelocidad = new PocionIncrementa("PocionIncrementadoraDeVelocidad", new Atributo("velocidad", 10));
 
+        Pocion decrementaPeso = new PocionDecrementa("PocionDecrementadoraDePeso", new Atributo("peso", 20));
+        Pocion decrementaAltura = new PocionDecrementa("PocionDecrementadoraDeAltura", new Atributo("altura", 40));
+        ArrayList<Pocion> listParaElCoctel = new ArrayList<>();
+        listParaElCoctel.add(decrementaPeso);
+        listParaElCoctel.add(decrementaAltura);
+
+        Pocion coctel = new CoctelDePociones("Coctel", listParaElCoctel);
+
+
         ArrayList<Pocion> listaDePociones = new ArrayList<>();
         listaDePociones.add(pocionIncrementaFuerza);
         listaDePociones.add(pocionIncrementaVelocidad);
+        listaDePociones.add(coctel);
 
         //Se crea el juego y el criterio (tipo de cartas del que se tratará el juego)
         Game game = new Game();

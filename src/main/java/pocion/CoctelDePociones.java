@@ -13,7 +13,11 @@ public class CoctelDePociones extends Pocion{
         this.pociones = new ArrayList<>();
     }
 
-    //probar si cambia la misma o hacer variable nueva abajo
+    public CoctelDePociones(String nombre, ArrayList<Pocion> pociones) {
+        super(nombre, false);
+        this.pociones = pociones;
+    }
+
     @Override
     public Card aplicarPocion(Card carta, String atributo) {
         for(Pocion pocion : pociones){

@@ -40,7 +40,7 @@ public class Game {
                     cardTwo.getNombre() + " con " + atributoRandom + " " +
                     cardTwo.getAtributo(atributoRandom).getValor());
             aplicarPociones(cardOne, cardTwo, atributoRandom);
-            if (cardOne.compareCards(cardTwo, atributoRandom)==1) {
+            if (cardOne.compareCards(cardTwo, atributoRandom) == 1) {
                 System.out.println("El jugador " + playerOne.getName() +
                         " Gano la ronda");
                 //Tomar las dos cartas y ponerlas al final del arr
@@ -52,7 +52,7 @@ public class Game {
                         playerOne.getMyDeck().size() + " y " +
                         playerTwo.getName() + " tiene " +
                         playerTwo.getMyDeck().size() + " cartas.");
-            } else if (cardOne.compareCards(cardTwo, atributoRandom)==-1)  {
+            } else if (cardOne.compareCards(cardTwo, atributoRandom) == -1) {
                 System.out.println("El jugador " + playerTwo.getName() +
                         " Gano la ronda");
                 //Tomar las dos cartas y ponerlas al final del array
@@ -85,21 +85,12 @@ public class Game {
         }
     }
 
-    private void aplicarPociones(Card carta1 , Card carta2, String atributo) {
+    private void aplicarPociones(Card carta1, Card carta2, String atributo) {
         if (carta1.getPocion() != null) {
-            carta1 = carta1.getPocion().aplicarPocion(carta1, atributo);
-            if(carta1.getPocion().getAplica()){
-                System.out.println("Se aplicó la pocima " + carta1.getPocion().getnombre() +
-                        " , el valor resultante es " + carta1.getAtributo(atributo).getValor());
-            }
+            carta1.getPocion().aplicarPocion(carta1, atributo);
         }
-
         if (carta2.getPocion() != null) {
-            carta2 = carta2.getPocion().aplicarPocion(carta2, atributo);
-            if( carta2.getPocion().getAplica()){
-                System.out.println("Se aplicó la pocima " +  carta2.getPocion().getnombre() +
-                        " , el valor resultante es " + carta2.getAtributo(atributo).getValor());
-            }
+            carta2.getPocion().aplicarPocion(carta2, atributo);
         }
     }
 }
