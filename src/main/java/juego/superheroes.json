@@ -1,0 +1,434 @@
+{
+  "cartas": [
+    {
+      "nombre": "Superman",
+      "atributos": {
+        "altura": 205,
+        "peso": 110,
+        "fuerza": 2000,
+        "peleas ganadas": 990,
+        "velocidad": 400
+      }
+    },
+    {
+      "nombre": "Linterna Verde",
+      "atributos": {
+        "altura": 186,
+        "peso": 90,
+        "fuerza": 710,
+        "peleas ganadas": 845,
+        "velocidad": 220
+      }
+    },
+    {
+      "nombre": "Mantis",
+      "atributos": {
+      "altura": 165,
+      "peso": 80,
+      "fuerza": 110,
+      "peleas ganadas": 7,
+      "velocidad": 99
+      }
+    },
+    {
+      "nombre": "Flecha Verde",
+      "atributos": {
+        "altura": 196,
+        "peso": 99,
+        "fuerza": 830,
+        "peleas ganadas": 910,
+        "velocidad": 340
+      }
+    },
+    {
+      "nombre": "Helicoptero",
+      "atributos": {
+        "envergadura": 196,
+        "peso": 99,
+        "capacidad": 830,
+        "velocidad": 340
+      }
+    },
+    {
+      "nombre": "Doctor Fate",
+      "atributos": {
+        "altura": 200,
+        "peso": 100,
+        "fuerza": 900,
+        "peleas ganadas": 805,
+        "velocidad": 100
+      }
+    },
+    {
+      "nombre": "Shazam",
+      "atributos": {
+        "altura": 192,
+        "peso": 95,
+        "fuerza": 1000,
+        "peleas ganadas": 930,
+        "velocidad": 300
+      }
+    },
+    {
+      "nombre": "Flash",
+      "atributos": {
+        "altura": 196,
+        "peso": 90,
+        "fuerza": 840,
+        "peleas ganadas": 900,
+        "velocidad": 800000
+      }
+    },
+    {
+      "nombre": "Darkseid",
+      "atributos": {
+        "altura": 210,
+        "peso": 130,
+        "fuerza": 1900,
+        "peleas ganadas": 95,
+        "velocidad": 110
+      }
+    },
+    {
+      "nombre": "Cyborg",
+      "atributos": {
+        "altura": 200,
+        "peso": 110,
+        "fuerza": 1100,
+        "peleas ganadas": 805,
+        "velocidad": 150
+      }
+    },
+    {
+      "nombre": "Batman",
+      "atributos": {
+        "altura": 203,
+        "peso": 106,
+        "fuerza": 500,
+        "peleas ganadas": 966,
+        "velocidad": 85
+      }
+    },
+    {
+      "nombre": "Lex Luthor",
+      "atributos": {
+        "altura": 180,
+        "peso": 79,
+        "fuerza": 415,
+        "peleas ganadas": 6,
+        "velocidad": 85
+      }
+    },
+    {
+      "nombre": "Faraón dorado",
+      "atributos": {
+        "altura": 189,
+        "peso": 88,
+        "fuerza": 690,
+        "peleas ganadas": 600,
+        "velocidad": 89
+      }
+    },
+    {
+      "nombre": "Robin",
+      "atributos": {
+        "altura": 178,
+        "peso": 65,
+        "fuerza": 200,
+        "peleas ganadas": 816,
+        "velocidad": 80
+      }
+    },
+    {
+      "nombre": "Brainiac",
+      "atributos": {
+        "altura": 180,
+        "peso": 200,
+        "fuerza": 805,
+        "peleas ganadas": 7,
+        "velocidad": 76
+      }
+    },
+    {
+      "nombre": "Cyclotron",
+      "atributos": {
+        "altura": 189,
+        "peso": 102,
+        "fuerza": 850,
+        "peleas ganadas": 780,
+        "velocidad": 170
+      }
+    },
+    {
+      "nombre": "Hombre Halcón",
+      "atributos": {
+        "altura": 196,
+        "peso": 95,
+        "fuerza": 835,
+        "peleas ganadas": 837,
+        "velocidad": 300
+      }
+    },
+    {
+      "nombre": "Guasón",
+      "atributos": {
+        "altura": 170,
+        "peso": 67,
+        "fuerza": 45,
+        "peleas ganadas": 5,
+        "velocidad": 45
+      }
+    },
+    {
+      "nombre": "Orion",
+      "atributos": {
+        "altura": 192,
+        "peso": 91,
+        "fuerza": 1300,
+        "peleas ganadas": 881,
+        "velocidad": 89
+      }
+    },
+    {
+      "nombre": "Acuaman",
+      "atributos": {
+        "altura": 185,
+        "peso": 86,
+        "fuerza": 700,
+        "peleas ganadas": 910,
+        "velocidad": 220
+      }
+    },
+    {
+      "nombre": "Pigüino",
+      "atributos": {
+        "altura": 160,
+        "peso": 90,
+        "fuerza": 30,
+        "peleas ganadas": 7,
+        "velocidad": 15
+      }
+    },
+    {
+      "nombre": "Samurai",
+      "atributos": {
+        "altura": 187,
+        "peso": 89,
+        "fuerza": 1450,
+        "peleas ganadas": 872,
+        "velocidad": 300
+      }
+    },
+    {
+      "nombre": "Mujer Maravilla",
+      "atributos": {
+        "altura": 178,
+        "peso": 62,
+        "fuerza": 830,
+        "peleas ganadas": 906,
+        "velocidad": 70
+      }
+    },
+    {
+      "nombre": "Steppnwolf",
+      "atributos": {
+        "altura": 182,
+        "peso": 89,
+        "fuerza": 2000,
+        "peleas ganadas": 15,
+        "velocidad": 400
+      }
+    },
+    {
+      "nombre": "Sr. Milagro",
+      "atributos": {
+        "altura": 182,
+        "peso": 98,
+        "fuerza": 1600,
+        "peleas ganadas": 670,
+        "velocidad": 289
+      }
+    },
+    {
+      "nombre": "Tornado Rojo",
+      "atributos": {
+        "altura": 182,
+        "peso": 86,
+        "fuerza": 650,
+        "peleas ganadas": 730,
+        "velocidad": 320
+      }
+    },
+    {
+      "nombre": "Kalibak",
+      "atributos": {
+        "altura": 175,
+        "peso": 99,
+        "fuerza": 93,
+        "peleas ganadas": 7,
+        "velocidad": 37
+      }
+    },
+    {
+      "nombre": "Hombre de goma",
+      "atributos": {
+        "altura": 300,
+        "peso": 81,
+        "fuerza": 600,
+        "peleas ganadas": 579,
+        "velocidad": 179
+      }
+    },
+    {
+      "nombre": "Manhunter",
+      "atributos": {
+        "altura": 189,
+        "peso": 99,
+        "fuerza": 890,
+        "peleas ganadas": 750,
+        "velocidad": 300
+      }
+    },
+    {
+      "nombre": "Paradeamon",
+      "atributos": {
+        "altura": 165,
+        "peso": 85,
+        "fuerza": 70,
+        "peleas ganadas": 9,
+        "velocidad": 180
+      }
+    },
+    {
+      "nombre": "Mr. Freeze",
+      "atributos": {
+        "altura": 189,
+        "peso": 110,
+        "fuerza": 350,
+        "peleas ganadas": 5,
+        "velocidad": 13
+      }
+    },
+    {
+      "nombre": "Firestorm",
+      "atributos": {
+        "altura": 176,
+        "peso": 70,
+        "fuerza": 700,
+        "peleas ganadas": 815,
+        "velocidad": 220
+      }
+    },
+    {
+      "nombre": "Desaad",
+      "atributos": {
+        "altura": 155,
+        "peso": 90,
+        "fuerza": 50,
+        "peleas ganadas": 5,
+        "velocidad": 14
+      }
+    },
+    {
+      "nombre": "Tyr",
+      "atributos": {
+        "altura": 179,
+        "peso": 90,
+        "fuerza": 1500,
+        "peleas ganadas": 4,
+        "velocidad": 76
+      }
+    },
+    {
+      "nombre": "Mujer Verde",
+      "atributos": {
+        "altura": 190,
+        "peso": 85,
+        "fuerza": 1500,
+        "peleas ganadas": 815,
+        "velocidad": 85
+      }
+    },
+    {
+      "nombre": "Dazzler",
+      "atributos": {
+        "altura": 172,
+        "peso": 50,
+        "fuerza": 130,
+        "peleas ganadas": 856,
+        "velocidad": 70
+      }
+    },
+    {
+      "nombre": "Chica Maravillosa",
+      "atributos": {
+        "altura": 170,
+        "peso": 48,
+        "fuerza": 800,
+        "peleas ganadas": 815,
+        "velocidad": 130
+      }
+    },
+    {
+      "nombre": "Mujer araña",
+      "atributos": {
+        "altura": 176,
+        "peso": 56,
+        "fuerza": 315,
+        "peleas ganadas": 836,
+        "velocidad": 105
+      }
+    },
+    {
+      "nombre": "Mujer Invisible",
+      "atributos": {
+        "altura": 187,
+        "peso": 54,
+        "fuerza": 106,
+        "peleas ganadas": 873,
+        "velocidad": 70
+      }
+    },
+    {
+      "nombre": "Tormenta",
+      "atributos": {
+        "altura": 155,
+        "peso": 63,
+        "fuerza": 320,
+        "peleas ganadas": 816,
+        "velocidad": 166
+      }
+    },
+    {
+      "nombre": "Tigra",
+      "atributos": {
+        "altura": 160,
+        "peso": 60,
+        "fuerza": 930,
+        "peleas ganadas": 906,
+        "velocidad": 160
+      }
+    },
+    {
+      "nombre": "Hombre de hielo",
+      "atributos": {
+        "altura": 177,
+        "peso": 85,
+        "fuerza": 800,
+        "peleas ganadas": 936,
+        "velocidad": 100
+      }
+    },
+    {
+      "nombre": "Hulk",
+      "atributos": {
+        "altura": 240,
+        "peso": 450,
+        "fuerza": 2500,
+        "peleas ganadas": 997,
+        "velocidad": 130
+      }
+    }
+	
+  ]
+}
