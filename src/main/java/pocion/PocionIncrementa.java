@@ -14,24 +14,19 @@ public class PocionIncrementa extends Pocion {
 
     @Override
     public Carta aplicarPocion(Carta carta, String atributoCarta) {
-        if(!this.aplicada) {
-            if (atributoDeLaPocion.getNombreAtributo() == null) {
-                for (Atributo atributo : carta.getAtributos()) {
-                    atributo.setValor(atributo.getValor() + ((atributo.getValor() * atributoDeLaPocion.getValor()) / 100));
-                    carta.addAtributo(atributo);
+        if (!this.aplicada) {
+            for (Atributo atributo : carta.getAtributos()) {
+                if (this.atributoDeLaPocion.getNombreAtributo() == null || atributo.getNombreAtributo().equals(this.atributoDeLaPocion.getNombreAtributo())) {
+                    atributo.setValor(atributo.getValor() + ((atributo.getValor() * this.atributoDeLaPocion.getValor()) / 100));
                 }
-                System.out.println("Se aplicó la pocima " + this.nombre +
-                        " , el valor resultante es " + carta.getAtributo(atributoCarta).getValor());
-                return carta;
-            } else if (atributoCarta.equals(this.atributoDeLaPocion.getNombreAtributo())) {
-                int valorDeLACopia = carta.getAtributo(atributoDeLaPocion.getNombreAtributo()).getValor();
-                int valorModificado = (valorDeLACopia + (valorDeLACopia * atributoDeLaPocion.getValor()) / 100);
-                carta.reemplazarAtributo(atributoDeLaPocion.getNombreAtributo(), valorModificado);
-                System.out.println("Se aplicó la pocima " + this.nombre +
-                        " , el valor resultante es " + carta.getAtributo(atributoCarta).getValor());
             }
+        }
+        if (!this.aplicada && (atributoDeLaPocion.getNombreAtributo() == null || atributoCarta.equals(atributoDeLaPocion.getNombreAtributo()))) {
+            System.out.println("Se aplicó la pocima " + this.nombre +
+                    " , el valor resultante es " + carta.getAtributo(atributoCarta).getValor());
         }
         this.aplicada = true;
         return carta;
+
     }
 }
