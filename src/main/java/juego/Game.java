@@ -47,7 +47,7 @@ public class Game {
             }
         }
         if (counter == MAX_ROUNDS) {
-            System.out.println("The game finished because we reached maximum rounds");
+            System.out.println("El juego termino porque alcanzo el maximo de rondas.");
         } else if (jugadorOne.getMyDeck().isEmtpy()) {
             System.out.println("Gano " + jugadorTwo.getName());
         } else {
