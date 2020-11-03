@@ -4,7 +4,7 @@ import juego.Carta;
 
 import java.util.ArrayList;
 
-public class CriterioNombreAtributos extends Criterio {
+public class CriterioNombreAtributos implements Criterio {
 
     private ArrayList<String> atributosPosibles;
 

@@ -2,7 +2,7 @@ package criterio;
 
 import juego.Carta;
 
-public class CriterioCantAtributos extends Criterio {
+public class CriterioCantAtributos implements Criterio {
     private int cantidadAtributos;
 
     public CriterioCantAtributos(int cantidad){

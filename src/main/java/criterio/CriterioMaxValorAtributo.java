@@ -3,7 +3,7 @@ package criterio;
 import juego.Atributo;
 import juego.Carta;
 
-public class CriterioMaxValorAtributo extends Criterio {
+public class CriterioMaxValorAtributo implements Criterio {
     private int maximo;
 
     public CriterioMaxValorAtributo(int maximo) {

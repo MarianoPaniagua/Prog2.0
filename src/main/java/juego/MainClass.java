@@ -6,10 +6,7 @@ import criterio.CriterioCantAtributos;
 import criterio.Criterio;
 import criterio.CriterioNombreAtributos;
 import estrategia.Timbero;
-import pocion.CoctelDePociones;
-import pocion.Pocion;
-import pocion.PocionDecrementa;
-import pocion.PocionIncrementa;
+import pocion.*;
 
 import java.util.ArrayList;
 
@@ -31,8 +28,8 @@ public class MainClass {
         //Se setean estrategias para cada jugador.
         Estrategia elegirMayor = new Obstinado("ambicioso", "fuerza");
         Estrategia elegirRandom = new Timbero("timbero");
-        jugadorOne.setEstrategia(elegirRandom);
-        jugadorTwo.setEstrategia(elegirRandom);
+        jugadorOne.setEstrategia(elegirMayor);
+        jugadorTwo.setEstrategia(elegirMayor);
 
         //Se crea el mazo general
         DeckHelper deckHelper = new DeckHelper();
@@ -79,6 +76,8 @@ public class MainClass {
         Pocion pocionIncrementaPeso = new PocionIncrementa("PocionIncrementadoraDePeso", new Atributo("peso", 24));
         Pocion pocionIncrementaPeleasGanadas = new PocionIncrementa("PocionIncrementadoraDePeleasGanadas", new Atributo("peleas ganadas", 68));
         Pocion pocionIncrementaAltura = new PocionIncrementa("PocionIncrementadoraDeAltura", new Atributo("altura", 15));
+        Pocion modificaFuerza = new PocionModifica("PocionModificaFuerza", new Atributo(null, 20));
+
 
         Pocion decrementaPeso20 = new PocionDecrementa("PocionDecrementadoraDePesox20", new Atributo("peso", 20));
         Pocion decrementaPeso40= new PocionDecrementa("PocionDecrementadoraDePesox40", new Atributo("peso", 40));
@@ -93,6 +92,7 @@ public class MainClass {
         listaDePociones.add(pocionIncrementaPeso);
         listaDePociones.add(pocionIncrementaPeleasGanadas);
         listaDePociones.add(pocionIncrementaAltura);
+        listaDePociones.add(modificaFuerza);
 
         return listaDePociones;
     }
