@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class MainClass {
     public static void main(String[] args) {
-        String path = "C:\\Users\\Francisco\\Desktop\\Prog 2.0\\Prog2.0\\src\\main\\java\\juego\\superheroes.json";
+        String path = "src/main/java/juego/superheroes.json";
 
         ArrayList<Pocion> listaDePociones = crearPociones();
         ArrayList<Criterio> criterios = crearCriterios();
