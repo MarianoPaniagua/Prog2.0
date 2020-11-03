@@ -1,7 +1,7 @@
-package estrategias;
+package estrategia;
 
 import juego.Atributo;
-import juego.Card;
+import juego.Carta;
 
 public class Obstinado extends Estrategia {
 
@@ -21,7 +21,7 @@ public class Obstinado extends Estrategia {
     }
 
     @Override
-    public Atributo playUsingStrategy(Card card) {//Juega siempre con el atributo que setee o con el que construi la estrategia.
-        return card.getAtributo(this.atributo);
+    public Atributo jugarEstrategia(Carta carta) {//Juega siempre con el atributo que setee o con el que construi la estrategia.
+        return carta.getAtributo(this.atributo);
     }
 }

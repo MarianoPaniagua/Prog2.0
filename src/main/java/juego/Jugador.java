@@ -1,16 +1,16 @@
 package juego;
 
-import estrategias.Estrategia;
+import estrategia.Estrategia;
 
-public class Player {
+public class Jugador {
 
     private String name;
-    private Deck myDeck;
+    private Mazo myMazo;
     private Estrategia estrategia;
 
-    public Player(){}
+    public Jugador(){}
 
-    public Player(String name){
+    public Jugador(String name){
         this.name = name;
     }
 
@@ -22,12 +22,12 @@ public class Player {
         this.name = name;
     }
 
-    public Deck getMyDeck() {
-        return myDeck;
+    public Mazo getMyDeck() {
+        return myMazo;
     }
 
-    public void setMyDeck(Deck myDeck) {
-        this.myDeck = myDeck;
+    public void setMyDeck(Mazo myMazo) {
+        this.myMazo = myMazo;
     }
 
     public Estrategia getEstrategia() {

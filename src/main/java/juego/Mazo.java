@@ -3,40 +3,40 @@ package juego;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Deck {
-    private ArrayList<Card> mazo;
+public class Mazo {
+    private ArrayList<Carta> mazo;
 
-    public Deck(){
+    public Mazo(){
         this.mazo = new ArrayList<>();
     }
-    public Deck (ArrayList<Card> mazo){this.mazo = mazo;}
+    public Mazo(ArrayList<Carta> mazo){this.mazo = mazo;}
 
-    public void addCard(Card card){
-        this.mazo.add(card);
+    public void addCard(Carta carta){
+        this.mazo.add(carta);
     }
 
-    public ArrayList<Card> getMazo() {
+    public ArrayList<Carta> getMazo() {
         return mazo;
     }
     public int size() {
         return mazo.size();
     }
 
-    public void setMazo(ArrayList<Card> mazo) {
+    public void setMazo(ArrayList<Carta> mazo) {
         this.mazo = mazo;
     }
 
-    public Card getARandomCard(){
+    public Carta getARandomCard(){
         int randomIndex = new Random().nextInt(mazo.size());
         return mazo.get(randomIndex);
     }
 
-    public Card getCard(int position){
+    public Carta getCard(int position){
         return mazo.get(position);
     }
 
-    public void takeCardFromDeck(Card card) {
-        this.mazo.remove(card);
+    public void takeCardFromDeck(Carta carta) {
+        this.mazo.remove(carta);
     }
 
     public boolean isEmtpy(){

@@ -5,22 +5,22 @@ import pocion.Pocion;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Card {
+public class Carta {
     private String nombre;
     protected ArrayList<Atributo> atributos;
     private Pocion pocion;
 
-    public Card() {
+    public Carta() {
         atributos = new ArrayList<>();
     }
 
-    public Card(String nombre, ArrayList<Atributo> atributos, Pocion pocion) {
+    public Carta(String nombre, ArrayList<Atributo> atributos, Pocion pocion) {
         this.nombre = nombre;
         this.atributos = atributos;
         this.pocion = pocion;
     }
 
-    public Card(String nombre) {
+    public Carta(String nombre) {
         atributos = new ArrayList<>();
     }
 
@@ -81,12 +81,12 @@ public class Card {
         return atributoRandom;
     }
 
-    public int compareCards(Card cardFromOponent, String attribute) {
-        if (this.getAtributo(attribute).getValor() > cardFromOponent.getAtributo(attribute).getValor()) {
+    public int compareCards(Carta cartaFromOponent, String attribute) {
+        if (this.getAtributo(attribute).getValor() > cartaFromOponent.getAtributo(attribute).getValor()) {
             return 1;
-        } else if (this.getAtributo(attribute).getValor() < cardFromOponent.getAtributo(attribute).getValor()) {
+        } else if (this.getAtributo(attribute).getValor() < cartaFromOponent.getAtributo(attribute).getValor()) {
             return -1;
-        } else if (this.getAtributo(attribute).getValor() == cardFromOponent.getAtributo(attribute).getValor()) {
+        } else if (this.getAtributo(attribute).getValor() == cartaFromOponent.getAtributo(attribute).getValor()) {
             return 0;
         } else return 99;
     }
@@ -107,8 +107,8 @@ public class Card {
                 '}';
     }
 
-    public Card getCopia() {
-        Card copia = new Card(this.nombre);
+    public Carta getCopia() {
+        Carta copia = new Carta(this.nombre);
         ArrayList array = new ArrayList(atributos);
         copia.setAtributos(array);
         return copia;
