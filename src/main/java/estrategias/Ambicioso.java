@@ -1,4 +1,4 @@
-package Estrategias;
+package estrategias;
 
 import juego.Atributo;
 import juego.Card;

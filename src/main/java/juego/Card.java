@@ -69,7 +69,7 @@ public class Card {
         return null;
     }
 
-    //fran medio putingo
+
     public void reemplazarAtributo(String nombre, int valor) {
         this.getAtributo(nombre).setValor(valor);
     }

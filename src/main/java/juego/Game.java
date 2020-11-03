@@ -2,7 +2,7 @@ package juego;
 
 public class Game {
 
-    public final int MAX_ROUNDS = 10;
+    public final int MAX_ROUNDS = 1000;
 
     private int counter = 1;
 

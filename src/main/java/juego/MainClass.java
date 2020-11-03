@@ -1,8 +1,8 @@
 package juego;
 
-import Estrategias.Ambicioso;
-import Estrategias.Estrategia;
-import Estrategias.Obstinado;
+import estrategias.Ambicioso;
+import estrategias.Estrategia;
+import estrategias.Obstinado;
 import criterio.CriterioCantAtributos;
 import criterio.Criterio;
 import criterio.CriterioNombreAtributos;
@@ -58,9 +58,10 @@ public class MainClass {
         Player playerTwo = new Player("Fran");
         System.out.println("Jugadores creados");
         //Se setean estrategias para cada jugador.
-        Estrategia elegirMayor = new Obstinado("ambicioso", "fuerza");
-        playerOne.setEstrategia(elegirMayor);
-        playerTwo.setEstrategia(elegirMayor);
+        Estrategia obstinado = new Obstinado("obstinado", "fuerza");
+        Estrategia elijeMAyor = new Ambicioso("ambiccioso");
+        playerOne.setEstrategia(obstinado);
+        playerTwo.setEstrategia(elijeMAyor);
 
         //Se crea el mazo general
         DeckHelper deckHelper = new DeckHelper();

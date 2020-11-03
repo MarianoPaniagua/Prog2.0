@@ -1,6 +1,6 @@
 package juego;
 
-import Estrategias.Estrategia;
+import estrategias.Estrategia;
 
 public class Player {
 
