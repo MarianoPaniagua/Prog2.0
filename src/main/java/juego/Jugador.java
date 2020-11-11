@@ -33,7 +33,12 @@ public class Jugador {
     public Estrategia getEstrategia() {
         return estrategia;
     }
+
     public void setEstrategia(Estrategia estrategia) {
         this.estrategia = estrategia;
+    }
+
+    public String getAtributoParaJugar(Carta carta){
+        return this.estrategia.jugarEstrategia(carta);
     }
 }

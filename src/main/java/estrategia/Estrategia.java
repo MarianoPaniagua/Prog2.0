@@ -11,5 +11,5 @@ public  abstract class Estrategia {
         this.nombre = nombre;
     }
 
-    public abstract Atributo jugarEstrategia(Carta carta);
+    public abstract String jugarEstrategia(Carta carta);
 }

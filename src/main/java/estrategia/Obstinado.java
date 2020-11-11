@@ -21,7 +21,7 @@ public class Obstinado extends Estrategia {
     }
 
     @Override
-    public Atributo jugarEstrategia(Carta carta) {//Juega siempre con el atributo que setee o con el que construi la estrategia.
-        return carta.getAtributo(this.atributo);
+    public String jugarEstrategia(Carta carta) {//Juega siempre con el atributo que setee o con el que construi la estrategia.
+        return carta.getAtributo(this.atributo).getNombreAtributo();
     }
 }

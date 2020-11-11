@@ -82,14 +82,11 @@ public class MainClass {
 
         Pocion decrementaPeso20 = new PocionDecrementa("PocionDecrementadoraDePesox20", new Atributo("peso", 20));
         Pocion decrementaPeso40= new PocionDecrementa("PocionDecrementadoraDePesox40", new Atributo("peso", 40));
-        ArrayList<Pocion> listParaElCoctel = new ArrayList<>();
-        listParaElCoctel.add(decrementaPeso20);
-        listParaElCoctel.add(decrementaPeso40);
+
 
         Pocion pocionIncrementaTodo = new PocionIncrementa("PocionIncrementadoraDeTodo", new Atributo(null, 20));
 
-
-        Pocion coctel = new CoctelDePociones("Coctel", listParaElCoctel);
+        Pocion coctel = new CoctelDePociones("Coctel", decrementaPeso20, decrementaPeso40);
         ArrayList<Pocion> listaDePociones = new ArrayList<>();
         listaDePociones.add(pocionIncrementaFuerza);
         listaDePociones.add(pocionIncrementaVelocidad);

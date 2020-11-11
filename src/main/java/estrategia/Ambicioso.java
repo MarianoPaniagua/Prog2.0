@@ -10,7 +10,7 @@ public class Ambicioso extends Estrategia {
     }
 
     @Override
-    public Atributo jugarEstrategia(Carta carta) {
+    public String jugarEstrategia(Carta carta) {
         Atributo maxValor = new Atributo();
         maxValor.setValor(0);
         for (Atributo atributo: carta.getAtributos()) {
@@ -19,6 +19,6 @@ public class Ambicioso extends Estrategia {
                 maxValor.setValor(atributo.getValor());
             }
         }
-        return maxValor;
+        return maxValor.getNombreAtributo();
     }
 }

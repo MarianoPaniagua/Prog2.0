@@ -4,13 +4,9 @@ public class Game {
 
     public final int MAX_ROUNDS = 1000;
 
-    private int counter = 1;
-
-    public void oneTurnpassed() {
-        counter++;
-    }
-
     public void play(Jugador jugadorOne, Jugador jugadorTwo) {
+        int counter = 1;
+
         Jugador auxiliar = new Jugador("Carlos");
 
         while ((counter < MAX_ROUNDS) && (!jugadorOne.getMyDeck().isEmtpy()) &&
@@ -21,29 +17,23 @@ public class Game {
             Carta cartaOne = jugadorOne.getMyDeck().getCard(0);
             Carta cartaTwo = jugadorTwo.getMyDeck().getCard(0);
             //El jugador uno elije un atributo
-            String atributoElegido = jugadorOne.getEstrategia().jugarEstrategia(cartaOne).getNombreAtributo();
+            String atributoElegido = jugadorOne.getAtributoParaJugar(cartaOne);
             imprimirDatos(jugadorOne, cartaOne, cartaTwo, jugadorTwo, atributoElegido);
             if (cartaOne.compareCards(cartaTwo, atributoElegido) == 1) {
-                System.out.println("El jugador " + jugadorOne.getName() +
-                        " Gano la ronda");
-                moverCartas(jugadorOne, jugadorTwo, cartaTwo);
-                oneTurnpassed();
-                imprimirComoQuedanLosMazos(jugadorOne, jugadorTwo);
+                moverCartasEImprimirEstadoDelDeck(jugadorOne, jugadorTwo, cartaTwo);
+                counter++;
             } else if (cartaOne.compareCards(cartaTwo, atributoElegido) == -1) {
-                System.out.println("El jugador " + jugadorTwo.getName() +
-                        " Gano la ronda");
-                moverCartas(jugadorTwo, jugadorOne, cartaOne);
-                imprimirComoQuedanLosMazos(jugadorOne, jugadorTwo);
+                moverCartasEImprimirEstadoDelDeck(jugadorTwo, jugadorOne, cartaOne);
+                counter++;
                 //Intercambia jugadores para seguir jugando
                 auxiliar = jugadorOne;
                 jugadorOne = jugadorTwo;
                 jugadorTwo = auxiliar;
-                oneTurnpassed();
             } else {
                 System.out.println("nadie gano");
                 jugadorOne.getMyDeck().putMyCardAtTheBottomOfDeck();
                 jugadorTwo.getMyDeck().putMyCardAtTheBottomOfDeck();
-                oneTurnpassed();
+                counter++;
             }
         }
         if (counter == MAX_ROUNDS) {
@@ -55,6 +45,11 @@ public class Game {
         }
     }
 
+    private void moverCartasEImprimirEstadoDelDeck(Jugador jugador, Jugador rival, Carta carta) {
+        moverCartas(jugador, rival, carta);
+        imprimirComoQuedanLosMazos(jugador, rival);
+    }
+
     private void imprimirComoQuedanLosMazos(Jugador jugadorOne, Jugador jugadorTwo) {
         System.out.println(jugadorOne.getName() + " Ahora tiene " +
                 jugadorOne.getMyDeck().size() + " y " +
@@ -63,6 +58,8 @@ public class Game {
     }
 
     private void moverCartas(Jugador jugadorOne, Jugador jugadorTwo, Carta cartaTwo) {
+        System.out.println("El jugador " + jugadorOne.getName() +
+                " Gano la ronda");
         jugadorOne.getMyDeck().addCard(cartaTwo);
         jugadorTwo.getMyDeck().takeCardFromDeck(cartaTwo);
         jugadorOne.getMyDeck().putMyCardAtTheBottomOfDeck();
