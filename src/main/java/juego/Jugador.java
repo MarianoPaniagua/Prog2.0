@@ -8,10 +8,10 @@ public class Jugador {
     private Mazo myMazo;
     private Estrategia estrategia;
 
-    public Jugador(){}
 
-    public Jugador(String name){
+    public Jugador(String name) {
         this.name = name;
+        this.myMazo = new Mazo();
     }
 
     public String getName() {
@@ -26,8 +26,8 @@ public class Jugador {
         return myMazo;
     }
 
-    public void setMyDeck(Mazo myMazo) {
-        this.myMazo = myMazo;
+    public void agregarCartaAlMazo(Carta carta) {
+        this.myMazo.addCard(carta);
     }
 
     public Estrategia getEstrategia() {
@@ -38,7 +38,7 @@ public class Jugador {
         this.estrategia = estrategia;
     }
 
-    public String getAtributoParaJugar(Carta carta){
+    public String getAtributoParaJugar(Carta carta) {
         return this.estrategia.jugarEstrategia(carta);
     }
 }

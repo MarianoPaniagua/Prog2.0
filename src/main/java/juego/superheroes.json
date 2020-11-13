@@ -428,6 +428,16 @@
         "peleas ganadas": 997,
         "velocidad": 130
       }
+    },
+    {
+      "nombre": "Hulk2",
+      "atributos": {
+        "altura": 240,
+        "peso": 450,
+        "fuerza": 2500,
+        "peleas ganadas": 997,
+        "velocidad": 130
+      }
     }
 	
   ]

@@ -113,4 +113,17 @@ public class Carta {
         copia.setAtributos(array);
         return copia;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        try{
+            Carta cartaAComparar = (Carta) obj;
+            if(!cartaAComparar.getAtributosNames(cartaAComparar.getAtributos()).containsAll(this.getAtributosNames(this.getAtributos()))){
+               return false;
+            }
+        } catch(Exception e){
+            return false;
+        }
+        return true;
+    }
 }

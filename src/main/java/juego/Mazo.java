@@ -39,6 +39,10 @@ public class Mazo {
         this.mazo.remove(carta);
     }
 
+    public void takeCard(int index) {
+        this.mazo.remove(index);
+    }
+
     public boolean isEmtpy(){
         return this.mazo.size() == 0;
     }

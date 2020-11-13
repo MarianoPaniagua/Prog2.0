@@ -2,9 +2,7 @@ package juego;
 
 import estrategia.Estrategia;
 import estrategia.Obstinado;
-import criterio.CriterioCantAtributos;
-import criterio.Criterio;
-import criterio.CriterioNombreAtributos;
+
 import estrategia.Timbero;
 import pocion.*;
 
@@ -14,15 +12,19 @@ public class MainClass {
     public static void main(String[] args) {
         String path = "src/main/java/juego/superheroes.json";
 
+        //Se crea lista de pociones
         ArrayList<Pocion> listaDePociones = crearPociones();
-        ArrayList<Criterio> criterios = crearCriterios();
-        //Se crea el juego y el criterio (tipo de cartas del que se tratará el juego)
+
+        //Se crea el juego
         Game game = new Game();
         System.out.println("Juego creado");
 
         //Se crean 2 jugadores
         Jugador jugadorOne = new Jugador("Mariano");
         Jugador jugadorTwo = new Jugador("Fran");
+        ArrayList<Jugador> jugadores = new ArrayList<>();
+        jugadores.add(jugadorOne);
+        jugadores.add(jugadorTwo);
         System.out.println("Jugadores creados");
 
         //Se setean estrategias para cada jugador.
@@ -36,37 +38,17 @@ public class MainClass {
         Mazo allCards = deckHelper.generateDeckAllCards(path);
         System.out.println("Mazo con todas las cartas creado");
 
-        //Se incorporan pociones al mazo general para posterior repartida
-        allCards = deckHelper.intercalarPociones(allCards, listaDePociones);
 
-        //Se asigna un mazo (filtrado según criterio) a cada jugador
-        jugadorOne.setMyDeck(deckHelper.generateDeck(allCards, true, criterios));
+        Mazo mazoConPociones = deckHelper.intercalarPociones(allCards, listaDePociones);
+        deckHelper.agregarDecksALosJugadores(jugadores, mazoConPociones);
         System.out.println(jugadorOne.getName() + "--->" + jugadorOne.getMyDeck().size() + " cartas");
-        jugadorTwo.setMyDeck(deckHelper.generateDeck(allCards, false, criterios));
         System.out.println(jugadorTwo.getName() + "--->" + jugadorTwo.getMyDeck().size() + " cartas");
         System.out.println("Mazos seteados a cada jugador");
+
 
         //Inicio de rondas
         System.out.println("------------Empieza el juego--------------");
         game.play(jugadorOne, jugadorTwo);
-    }
-
-    private static ArrayList<Criterio> crearCriterios() {
-        ArrayList<String> atributosPosibles = new ArrayList<String>() {
-            {
-                add("altura");
-                add("peso");
-                add("fuerza");
-                add("peleas ganadas");
-                add("velocidad");
-            }
-        };
-        Criterio cantidadAtributos = new CriterioCantAtributos(5);
-        Criterio nombreAtributos = new CriterioNombreAtributos(atributosPosibles);
-        ArrayList<Criterio> criterios = new ArrayList<Criterio>();
-        criterios.add(cantidadAtributos);
-        criterios.add(nombreAtributos);
-        return criterios;
     }
 
     private static ArrayList<Pocion> crearPociones() {

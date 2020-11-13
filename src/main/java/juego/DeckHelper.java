@@ -1,6 +1,5 @@
 package juego;
 
-import criterio.Criterio;
 import pocion.Pocion;
 
 import javax.json.Json;
@@ -37,7 +36,13 @@ public class DeckHelper {
                     atributo.setValor(atributos.getInt(nombreAtributo));
                     cartita.addAtributo(atributo);
                 }
-                mazo.addCard(cartita);
+               if(mazo.size() == 0) {
+                   mazo.addCard(cartita);
+               } else{
+                   if(cartita.equals(mazo.getCard(0))){
+                       mazo.addCard(cartita);
+                   }
+               }
             }
             reader.close();
         } catch (
@@ -47,22 +52,6 @@ public class DeckHelper {
         return mazo;
     }
 
-    public Mazo filtrarMazoPorCriterio(Mazo mazoToFilter, List<Criterio> criterios) {
-        Mazo filteredMazo = new Mazo();
-        boolean cumple = true;
-        for (int i = 0; i < mazoToFilter.size(); i++) {
-            for (int j = 0; j < criterios.size(); j++) {
-                if (!criterios.get(j).cumpleCriterio(mazoToFilter.getCard(i))) {
-                    cumple = false;
-                }
-            }
-            if (cumple) {
-                filteredMazo.addCard(mazoToFilter.getCard(i));
-            }
-            cumple = true;
-        }
-        return filteredMazo;
-    }
 
     private Mazo repartirDeck(Mazo allCards, int extraCard) {
         int i;
@@ -76,20 +65,27 @@ public class DeckHelper {
         return mazoRepartido;
     }
 
-    public Mazo generateDeck(Mazo allCards, boolean isPlayer1, List<Criterio> criterios) {
-        int extraCard = 0;
-        if (isPlayer1 && allCards.size() % 2 > 0) {
-            extraCard = 1;
+    public void agregarDecksALosJugadores(List<Jugador> jugadores, Mazo allCards){
+        int t;
+        int total = allCards.getMazo().size();
+        for(t=0;t<total;t++){
+            if(allCards.getMazo().isEmpty()){
+                continue;
+            }
+            jugadores.get(0).agregarCartaAlMazo(allCards.getCard(0));
+            allCards.takeCard(0);
+            if(allCards.getMazo().isEmpty()){
+                continue;
+            }
+            jugadores.get(1).agregarCartaAlMazo(allCards.getCard(0));
+            allCards.takeCard(0);
         }
-        Mazo mazoRepartido = repartirDeck(filtrarMazoPorCriterio(allCards, criterios), extraCard);
-        return mazoRepartido;
     }
 
     public Mazo intercalarPociones(Mazo mazoGeneral, List<Pocion> pociones) {
         int i;
-        for(i = 0; i < pociones.size(); i++){
-            int randomNumCard = ThreadLocalRandom.current().nextInt(0, mazoGeneral.size());
-            mazoGeneral.getCard(randomNumCard).setPocion(pociones.get(i));
+        for(i=0;i<pociones.size();i++){
+            mazoGeneral.getCard(i).setPocion(pociones.get(i));
         }
         return mazoGeneral;
     }
