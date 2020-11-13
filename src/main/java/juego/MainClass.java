@@ -31,7 +31,7 @@ public class MainClass {
         Estrategia elegirMayor = new Obstinado("ambicioso", "fuerza");
         Estrategia elegirRandom = new Timbero("timbero");
         jugadorOne.setEstrategia(elegirMayor);
-        jugadorTwo.setEstrategia(elegirMayor);
+        jugadorTwo.setEstrategia(elegirRandom);
 
         //Se crea el mazo general
         DeckHelper deckHelper = new DeckHelper();
@@ -58,6 +58,8 @@ public class MainClass {
         Pocion pocionIncrementaPeso = new PocionIncrementa("PocionIncrementadoraDePeso", new Atributo("peso", 24));
         Pocion pocionIncrementaPeleasGanadas = new PocionIncrementa("PocionIncrementadoraDePeleasGanadas", new Atributo("peleas ganadas", 68));
         Pocion pocionIncrementaAltura = new PocionIncrementa("PocionIncrementadoraDeAltura", new Atributo("altura", 15));
+        Pocion modificaTodos = new PocionModifica("PocionModificaFuerza", new Atributo(null, 20));
+
 
         Pocion modificaFuerza = new PocionModifica("PocionModificaFuerza", new Atributo("fuerza", 20));
         Pocion modificaTodas = new PocionModifica("PocionModificaTodas", new Atributo(null, 20));
@@ -76,9 +78,13 @@ public class MainClass {
         listaDePociones.add(pocionIncrementaPeso);
         listaDePociones.add(pocionIncrementaPeleasGanadas);
         listaDePociones.add(pocionIncrementaAltura);
+
         listaDePociones.add(modificaFuerza);
         listaDePociones.add(modificaTodas);
         listaDePociones.add(pocionIncrementaTodo);
+
+        listaDePociones.add(modificaTodos);
+
 
         return listaDePociones;
     }
