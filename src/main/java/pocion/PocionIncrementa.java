@@ -3,7 +3,7 @@ package pocion;
 import juego.Atributo;
 import juego.Carta;
 
-public class PocionIncrementa extends Pocion {
+public class  PocionIncrementa extends Pocion {
 
     Atributo atributoDeLaPocion;
 
