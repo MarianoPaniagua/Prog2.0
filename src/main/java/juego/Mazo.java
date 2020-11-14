@@ -9,6 +9,7 @@ public class Mazo {
     public Mazo(){
         this.mazo = new ArrayList<>();
     }
+
     public Mazo(ArrayList<Carta> mazo){this.mazo = mazo;}
 
     public void addCard(Carta carta){
@@ -46,6 +47,7 @@ public class Mazo {
     public boolean isEmtpy(){
         return this.mazo.size() == 0;
     }
+
     public void putMyCardAtTheBottomOfDeck() {
         mazo.add(mazo.remove(0));
     }

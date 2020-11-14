@@ -26,6 +26,11 @@ public class Atributo {
         this.valor = valor;
     }
 
+    public Atributo getCopiaAtr(){
+        Atributo copia = new Atributo(this.nombreAtributo,this.valor);
+        return copia;
+    }
+
 
     @Override
     public boolean equals(Object obj) {
