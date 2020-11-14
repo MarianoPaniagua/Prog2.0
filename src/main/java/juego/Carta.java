@@ -14,9 +14,9 @@ public class Carta {
         atributos = new ArrayList<>();
     }
 
-    public Carta(String nombre, ArrayList<Atributo> atributos, Pocion pocion) {
+    public Carta(String nombre, Pocion pocion) {
         this.nombre = nombre;
-        this.atributos = atributos;
+        this.atributos = new ArrayList<>();
         this.pocion = pocion;
     }
 
@@ -41,13 +41,14 @@ public class Carta {
     }
 
     public ArrayList<Atributo> getAtributos() {
-        return atributos;
+        return new ArrayList<>(atributos);
+
     }
 
     public ArrayList<String> getAtributosNames(ArrayList<Atributo> atributos) {
         ArrayList<String> atributosNames = new ArrayList<>();
-        for (int i = 0; i < atributos.size(); i++) {
-            atributosNames.add(atributos.get(i).getNombreAtributo());
+        for (Atributo atributo : atributos) {
+            atributosNames.add(atributo.getNombreAtributo());
         }
         return atributosNames;
     }
@@ -109,8 +110,9 @@ public class Carta {
 
     public Carta getCopia() {
         Carta copia = new Carta(this.nombre);
-        ArrayList array = new ArrayList(atributos);
-        copia.setAtributos(array);
+        for (Atributo a :atributos) {
+            copia.addAtributo(a.getCopiaAtr());
+        }
         return copia;
     }
 
