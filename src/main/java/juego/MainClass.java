@@ -28,7 +28,7 @@ public class MainClass {
         System.out.println("Jugadores creados");
 
         //Se setean estrategias para cada jugador.
-        Estrategia elegirMayor = new Obstinado("ambicioso", "fuerza");
+        Estrategia elegirMayor = new Obstinado("obstinado", "peso");
         Estrategia elegirRandom = new Timbero("timbero");
         jugadorOne.setEstrategia(elegirMayor);
         jugadorTwo.setEstrategia(elegirRandom);
@@ -38,13 +38,11 @@ public class MainClass {
         Mazo allCards = deckHelper.generateDeckAllCards(path);
         System.out.println("Mazo con todas las cartas creado");
 
-
         Mazo mazoConPociones = deckHelper.intercalarPociones(allCards, listaDePociones);
         deckHelper.agregarDecksALosJugadores(jugadores, mazoConPociones);
         System.out.println(jugadorOne.getName() + "--->" + jugadorOne.getMyDeck().size() + " cartas");
         System.out.println(jugadorTwo.getName() + "--->" + jugadorTwo.getMyDeck().size() + " cartas");
         System.out.println("Mazos seteados a cada jugador");
-
 
         //Inicio de rondas
         System.out.println("------------Empieza el juego--------------");
@@ -58,19 +56,17 @@ public class MainClass {
         Pocion pocionIncrementaPeso = new PocionIncrementa("PocionIncrementadoraDePeso", new Atributo("peso", 24));
         Pocion pocionIncrementaPeleasGanadas = new PocionIncrementa("PocionIncrementadoraDePeleasGanadas", new Atributo("peleas ganadas", 68));
         Pocion pocionIncrementaAltura = new PocionIncrementa("PocionIncrementadoraDeAltura", new Atributo("altura", 15));
-        Pocion modificaTodos = new PocionModifica("PocionModificaFuerza", new Atributo(null, 20));
-
+        Pocion modificaTodos = new PocionModifica("ModificaTodos", new Atributo(null, 202));
 
         Pocion modificaFuerza = new PocionModifica("PocionModificaFuerza", new Atributo("fuerza", 20));
         Pocion modificaTodas = new PocionModifica("PocionModificaTodas", new Atributo(null, 20));
 
         Pocion decrementaPeso20 = new PocionDecrementa("PocionDecrementadoraDePesox20", new Atributo("peso", 20));
-        Pocion decrementaPeso40= new PocionDecrementa("PocionDecrementadoraDePesox40", new Atributo("peso", 40));
-
+        Pocion decrementaPeso40 = new PocionDecrementa("PocionDecrementadoraDePesox40", new Atributo("peso", 40));
 
         Pocion pocionIncrementaTodo = new PocionIncrementa("PocionIncrementadoraDeTodo", new Atributo(null, 20));
 
-        Pocion coctel = new CoctelDePociones("Coctel", decrementaPeso20, decrementaPeso40);
+        Pocion coctel = new CoctelDePociones("CoctelDePeso", decrementaPeso20, decrementaPeso40);
         ArrayList<Pocion> listaDePociones = new ArrayList<>();
         listaDePociones.add(pocionIncrementaFuerza);
         listaDePociones.add(pocionIncrementaVelocidad);
@@ -84,7 +80,6 @@ public class MainClass {
         listaDePociones.add(pocionIncrementaTodo);
 
         listaDePociones.add(modificaTodos);
-
 
         return listaDePociones;
     }

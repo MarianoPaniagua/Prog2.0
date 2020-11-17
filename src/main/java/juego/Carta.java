@@ -22,10 +22,7 @@ public class Carta {
 
     public Carta(String nombre) {
         atributos = new ArrayList<>();
-    }
-
-    public void addAtributo(String nombreAtributo, int valor) {
-        this.atributos.add(new Atributo(nombreAtributo, valor));
+        this.nombre = nombre;
     }
 
     public void addAtributo(Atributo atributo) {
@@ -42,7 +39,6 @@ public class Carta {
 
     public ArrayList<Atributo> getAtributos() {
         return new ArrayList<>(atributos);
-
     }
 
     public ArrayList<String> getAtributosNames(ArrayList<Atributo> atributos) {
@@ -57,10 +53,6 @@ public class Carta {
         this.nombre = nombre;
     }
 
-    public void setAtributos(ArrayList<Atributo> atributos) {
-        this.atributos = atributos;
-    }
-
     public Atributo getAtributo(String nombreAtributo) { //pocion, si es nula, nada, si hay, aplicamos
         for (int i = 0; i < atributos.size(); i++) {
             if (atributos.get(i).getNombreAtributo().equals(nombreAtributo)) {
@@ -70,26 +62,10 @@ public class Carta {
         return null;
     }
 
-
-    public void reemplazarAtributo(String nombre, int valor) {
-        this.getAtributo(nombre).setValor(valor);
-    }
-
-
     public String getARandomAtributeName() {
         int randomIndex = new Random().nextInt(this.getCantidadAtributos() - 1) + 1;
         String atributoRandom = atributos.get(randomIndex).getNombreAtributo();
         return atributoRandom;
-    }
-
-    public int compareCards(Carta cartaFromOponent, String attribute) {
-        if (this.getAtributo(attribute).getValor() > cartaFromOponent.getAtributo(attribute).getValor()) {
-            return 1;
-        } else if (this.getAtributo(attribute).getValor() < cartaFromOponent.getAtributo(attribute).getValor()) {
-            return -1;
-        } else if (this.getAtributo(attribute).getValor() == cartaFromOponent.getAtributo(attribute).getValor()) {
-            return 0;
-        } else return 99;
     }
 
     public Pocion getPocion() {
@@ -110,7 +86,7 @@ public class Carta {
 
     public Carta getCopia() {
         Carta copia = new Carta(this.nombre);
-        for (Atributo a :atributos) {
+        for (Atributo a : atributos) {
             copia.addAtributo(a.getCopiaAtr());
         }
         return copia;
@@ -118,12 +94,12 @@ public class Carta {
 
     @Override
     public boolean equals(Object obj) {
-        try{
+        try {
             Carta cartaAComparar = (Carta) obj;
-            if(!cartaAComparar.getAtributosNames(cartaAComparar.getAtributos()).containsAll(this.getAtributosNames(this.getAtributos()))){
-               return false;
+            if (!cartaAComparar.getAtributosNames(cartaAComparar.getAtributos()).containsAll(this.getAtributosNames(this.getAtributos()))) {
+                return false;
             }
-        } catch(Exception e){
+        } catch (Exception e) {
             return false;
         }
         return true;

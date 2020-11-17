@@ -12,13 +12,10 @@ public abstract class Pocion {
         this.nombre = nombre; this.aplicada = aplicada;
     }
 
-    public abstract Carta aplicarPocion(Carta cartaAModificar, String Atributo);
+    public abstract int aplicarPocion(Carta cartaAModificar, String Atributo);
 
-    public String getnombre() {
+    public String getNombre(){
         return this.nombre;
     }
 
-    public boolean aplicada() {
-        return this.aplicada;
-    }
 }

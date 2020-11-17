@@ -14,12 +14,17 @@ public class CoctelDePociones extends Pocion {
     }
 
     @Override
-    public Carta aplicarPocion(Carta carta, String atributo) {
+    public int aplicarPocion(Carta carta, String atributo) {
+        Carta copia = carta.getCopia();
+        int b = copia.getAtributo(atributo).getValor();
+        int a;
         if (!this.aplicada) {
-            carta = pocion1.aplicarPocion(carta, atributo);
-            carta = pocion2.aplicarPocion(carta, atributo);
+            //la consigna dice de ir aplicando el valor al ultimo modificado
+            a = pocion1.aplicarPocion(copia, atributo);
+            copia.getAtributo(atributo).setValor(a);
+            b = pocion2.aplicarPocion(copia, atributo);
+            this.aplicada = true;
         }
-        this.aplicada = true;
-        return carta;
+        return b;
     }
 }

@@ -8,25 +8,28 @@ public class PocionDecrementa extends Pocion {
     Atributo atributoDeLaPocion;
 
     public PocionDecrementa(String nombre, Atributo atributoDeLaPocion) {
-        super(nombre,false);
+        super(nombre, false);
         this.atributoDeLaPocion = atributoDeLaPocion;
     }
 
     @Override
-    public Carta aplicarPocion(Carta carta, String atributoCarta) {
+    public int aplicarPocion(Carta carta, String atributoAJugar) {
         if (!this.aplicada) {
-            for (Atributo atributo : carta.getAtributos()) {
-                if (this.atributoDeLaPocion.getNombreAtributo() == null || atributo.getNombreAtributo().equals(this.atributoDeLaPocion.getNombreAtributo())) {
-                    atributo.setValor(atributo.getValor() - ((atributo.getValor() * this.atributoDeLaPocion.getValor()) / 100));
+            Carta copia = carta.getCopia();
+            //si el atributo esta seteado como null, entonces aplicamos la pocion a todos los atributos
+            if (this.atributoDeLaPocion.getNombreAtributo() == null) {
+                for (Atributo atributo : copia.getAtributos()) {
+                    atributo.setValor(atributo.getValor() -
+                            ((atributo.getValor() * this.atributoDeLaPocion.getValor()) / 100));
                 }
+            } else if (atributoAJugar.equals(atributoDeLaPocion.getNombreAtributo())) {
+                Atributo atributoAModificar = copia.getAtributo(atributoAJugar);
+                atributoAModificar.setValor(atributoAModificar.getValor() -
+                        ((atributoAModificar.getValor() * this.atributoDeLaPocion.getValor()) / 100));
             }
+            this.aplicada = true;
+            return copia.getAtributo(atributoAJugar).getValor();
         }
-        if (!this.aplicada && (atributoDeLaPocion.getNombreAtributo() == null || atributoCarta.equals(atributoDeLaPocion.getNombreAtributo()))) {
-            System.out.println("Se aplicó la pocima " + this.nombre +
-                    " , el valor resultante es " + carta.getAtributo(atributoCarta).getValor());
-        }
-        this.aplicada = true;
-        return carta;
-
+        return carta.getAtributo(atributoAJugar).getValor();
     }
 }

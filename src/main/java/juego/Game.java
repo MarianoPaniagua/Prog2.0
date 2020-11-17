@@ -6,23 +6,30 @@ public class Game {
 
     public void play(Jugador jugadorOne, Jugador jugadorTwo) {
         int counter = 1;
-
-        Jugador auxiliar = new Jugador("Carlos");
-
-        while ((counter < MAX_ROUNDS) && (!jugadorOne.getMyDeck().isEmtpy()) &&
-                (!jugadorTwo.getMyDeck().isEmtpy())) {
+        Jugador auxiliar;
+        while ((counter < MAX_ROUNDS) && (!jugadorOne.tieneMazoVacio()) &&
+                (!jugadorTwo.tieneMazoVacio())) {
             //Empieza el juego
             System.out.println("-------Turno " + counter + "-------");
             //Cada jugador toma la primer carta de su mazo
-            Carta cartaOne = jugadorOne.getMyDeck().getCard(0);
-            Carta cartaTwo = jugadorTwo.getMyDeck().getCard(0);
+
+            Carta cartaOne = jugadorOne.getPrimeraCarta();
+            Carta cartaTwo = jugadorTwo.getPrimeraCarta();
+
             //El jugador uno elije un atributo
             String atributoElegido = jugadorOne.getAtributoParaJugar(cartaOne);
-            imprimirDatos(jugadorOne, cartaOne, cartaTwo, jugadorTwo, atributoElegido);
-            if (cartaOne.compareCards(cartaTwo, atributoElegido) == 1) {
+            System.out.println("El jugador " + jugadorOne.getName() + " selecciona competir con el atributo "
+                    + atributoElegido);
+
+            //Aplicamos las pociones y guardamos el resultado
+            int valorDelJugador1 = aplicarPociones(jugadorOne, cartaOne, atributoElegido);
+            int valorDelJugador2 = aplicarPociones(jugadorTwo, cartaTwo, atributoElegido);
+
+            //Comparamos los atributos
+            if (valorDelJugador1 > valorDelJugador2) {
                 moverCartasEImprimirEstadoDelDeck(jugadorOne, jugadorTwo, cartaTwo);
                 counter++;
-            } else if (cartaOne.compareCards(cartaTwo, atributoElegido) == -1) {
+            } else if (valorDelJugador2 > valorDelJugador1) {
                 moverCartasEImprimirEstadoDelDeck(jugadorTwo, jugadorOne, cartaOne);
                 counter++;
                 //Intercambia jugadores para seguir jugando
@@ -65,22 +72,27 @@ public class Game {
         jugadorOne.getMyDeck().putMyCardAtTheBottomOfDeck();
     }
 
-    private void imprimirDatos(Jugador jugadorOne, Carta cartaOne, Carta cartaTwo, Jugador jugadorTwo, String atributoElegido) {
-        System.out.println("El jugador " + jugadorOne.getName() + " selecciona competir con el atributo "
-                + atributoElegido);
+    private int aplicarPociones(Jugador jugadorOne, Carta cartaOne, String atributoElegido) {
         System.out.println("La carta de " + jugadorOne.getName() + " es " +
                 cartaOne.getNombre() + " con " + atributoElegido + " " +
                 cartaOne.getAtributo(atributoElegido).getValor());
-        aplicarPocion(cartaOne, atributoElegido, jugadorOne);
-        System.out.println("La carta de " + jugadorTwo.getName() + " es " +
-                cartaTwo.getNombre() + " con " + atributoElegido + " " +
-                cartaTwo.getAtributo(atributoElegido).getValor());
-        aplicarPocion(cartaTwo, atributoElegido, jugadorTwo);
+        return aplicarPocion(cartaOne, atributoElegido);
     }
 
-    private void aplicarPocion(Carta carta, String atributo, Jugador jugador){
+    private int aplicarPocion(Carta carta, String atributo) {
+        int atributoOriginal = carta.getAtributo(atributo).getValor();
+        int atributoModificado = atributoOriginal;
         if (carta.getPocion() != null) {
-            carta.getPocion().aplicarPocion(carta, atributo);
+            atributoModificado = carta.getPocion().aplicarPocion(carta, atributo);
         }
+        if (atributoOriginal != atributoModificado) {
+            imprimirValorModificado(atributoModificado, carta.getPocion().getNombre());
+        }
+        return atributoModificado;
+    }
+
+    private void imprimirValorModificado(int atributoModificado, String nombrePocion) {
+        System.out.println("Se aplicó la pocima " + nombrePocion +
+                " , el valor resultante es " + atributoModificado);
     }
 }

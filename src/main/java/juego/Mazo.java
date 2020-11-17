@@ -1,38 +1,33 @@
 package juego;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Mazo {
     private ArrayList<Carta> mazo;
 
-    public Mazo(){
+    public Mazo() {
         this.mazo = new ArrayList<>();
     }
 
-    public Mazo(ArrayList<Carta> mazo){this.mazo = mazo;}
-
-    public void addCard(Carta carta){
-        this.mazo.add(carta);
+    public void addCard(Carta carta) {
+        if (mazo.size() == 0) {
+            this.mazo.add(carta);
+        } else {
+            if (carta.equals(getCard(0))) {
+                this.mazo.add(carta);
+            }
+        }
     }
 
     public ArrayList<Carta> getMazo() {
         return mazo;
     }
+
     public int size() {
         return mazo.size();
     }
 
-    public void setMazo(ArrayList<Carta> mazo) {
-        this.mazo = mazo;
-    }
-
-    public Carta getARandomCard(){
-        int randomIndex = new Random().nextInt(mazo.size());
-        return mazo.get(randomIndex);
-    }
-
-    public Carta getCard(int position){
+    public Carta getCard(int position) {
         return mazo.get(position);
     }
 
@@ -44,7 +39,7 @@ public class Mazo {
         this.mazo.remove(index);
     }
 
-    public boolean isEmtpy(){
+    public boolean isEmtpy() {
         return this.mazo.size() == 0;
     }
 

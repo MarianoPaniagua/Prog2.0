@@ -18,10 +18,6 @@ public class Jugador {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Mazo getMyDeck() {
         return myMazo;
     }
@@ -30,15 +26,22 @@ public class Jugador {
         this.myMazo.addCard(carta);
     }
 
-    public Estrategia getEstrategia() {
-        return estrategia;
-    }
-
     public void setEstrategia(Estrategia estrategia) {
         this.estrategia = estrategia;
     }
 
     public String getAtributoParaJugar(Carta carta) {
         return this.estrategia.jugarEstrategia(carta);
+    }
+
+    public Carta getPrimeraCarta(){
+      if(this.myMazo.size() > 0){
+          return this.myMazo.getCard(0);
+      }
+      return null;
+    }
+
+    public boolean tieneMazoVacio(){
+        return this.myMazo.isEmtpy();
     }
 }

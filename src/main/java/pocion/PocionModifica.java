@@ -13,19 +13,21 @@ public class PocionModifica extends Pocion {
     }
 
     @Override
-    public Carta aplicarPocion(Carta carta, String atributoCarta) {
+    public int aplicarPocion(Carta carta, String atributoAJugar) {
         if (!this.aplicada) {
-            for (Atributo atributo : carta.getAtributos()) {
-                if (atributoDeLaPocion.getNombreAtributo() == null || atributo.getNombreAtributo().equals(atributoDeLaPocion.getNombreAtributo())) {
-                    carta.reemplazarAtributo(atributo.getNombreAtributo(), atributoDeLaPocion.getValor());
+            Carta copia = carta.getCopia();
+            //si el atributo esta seteado como null, entonces aplicamos la pocion a todos los atributos
+            if (this.atributoDeLaPocion.getNombreAtributo() == null) {
+                for (Atributo atributo : copia.getAtributos()) {
+                    atributo.setValor(atributoDeLaPocion.getValor());
                 }
+            } else if (atributoAJugar.equals(atributoDeLaPocion.getNombreAtributo())) {
+                Atributo atributoAModificar = copia.getAtributo(atributoAJugar);
+                atributoAModificar.setValor(atributoDeLaPocion.getValor());
             }
+            this.aplicada = true;
+            return copia.getAtributo(atributoAJugar).getValor();
         }
-        if (!this.aplicada && (atributoDeLaPocion.getNombreAtributo() == null || atributoCarta.equals(atributoDeLaPocion.getNombreAtributo()))) {
-            System.out.println("Se aplicó la pocima " + this.nombre +
-                    " , el valor resultante es " + carta.getAtributo(atributoCarta).getValor());
-        }
-        this.aplicada = true;
-        return carta;
+        return carta.getAtributo(atributoAJugar).getValor();
     }
 }
