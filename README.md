@@ -1,1 +1,1 @@
-Trabajo final de la materia Programación 2. Juego de cartas utilizando varios patrones de diseño y buenas prácticas.
+Trabajo final de la materia Programación 2. Creamos un juego de cartas utilizando varios patrones de diseño y buenas prácticas.
